@@ -1,0 +1,13 @@
+<div id="container">
+<%= form_for @task do |f|%>
+<div class="form-group">
+  <%= f.label :title, class: 'mt-4' %>
+  <%= f.text_field :title, class: 'form-control', placeholder: 'Aller aux courses' %>
+</div>
+<div class="form-group">
+  <%= f.label :details, class: 'mt-2' %>
+  <%= f.text_area :details, size: "60x12", class: 'form-control', placeholder: 'Penser à prendre du pain' %>
+</div>
+  <%= f.submit 'Add task!', class: 'btn btn-primary mt-2' %>
+<% end %>
+</div>

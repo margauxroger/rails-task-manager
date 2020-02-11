@@ -1,0 +1,20 @@
+<div class="container mt-5 mb-3">
+  <div class="row">
+    <h1 class="col-10"><%= @task.title.capitalize %></h1>
+    <%= link_to('Edit', edit_path, {class: "btn btn-outline-info btn-lg col-2"}) %>
+  </div>
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="alert alert-info mt-4 col-10">
+      <%= @task.details %>
+    </div>
+    <div class="col-1"></div>
+  </div>
+  <p class="ml-3 mt-3">
+    <i class="<%= @task.completed ? "far fa-check-square" : "far fa-square" %>"></i>
+    <%= @task.completed ? "This task is completed" : "This task is not completed yet"%>
+  </p>
+  <div class="footer mt-4 pt-3 border-top">
+    <i class="fas fa-undo"></i> <%= link_to("Back to tasks list", tasks_path)  %>
+  </div>
+</div>

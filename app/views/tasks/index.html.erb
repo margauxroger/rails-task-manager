@@ -1,0 +1,22 @@
+<div class="container mt-5 mb-3">
+  <h1>My Tasks</h1>
+    <div class="mt-4">
+  <% @tasks.each do |task| %>
+      <p>
+        <i class="<%= task.completed ? "far fa-check-square" : "far fa-square" %> mr-3"></i>
+         <%= link_to(task.title, task_path(task.id)) %>
+         <%= link_to task_path(task.id),
+            method: :delete,
+            data: { confirm: "Are you sure?" } do %>
+            <i class="fas fa-trash ml-2"></i>
+            <% end %>
+      </p>
+  <% end %>
+    </div>
+  <div class="footer mt-5 pt-3 border-top">
+    <%= link_to('Add a new task', tasks_new_path) %>
+  </div>
+</div>
+
+
+
