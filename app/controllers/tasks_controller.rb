@@ -1,6 +1,8 @@
 class TasksController < ApplicationController
   def index
     @tasks = Task.all
+    @completed = Task.where('completed = true').length
+    @percentage = @completed.fdiv(@tasks.length) * 100
   end
 
   def show
@@ -28,7 +30,6 @@ class TasksController < ApplicationController
     @task.update(task_params)
     redirect_to tasks_path
   end
-
 
   def destroy
     @task = Task.find(params[:id])
